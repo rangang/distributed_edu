@@ -11,7 +11,7 @@
     <!--1.服务提供方在zookeeper中的“别名”-->
     <dubbo:application name="edu-service"/>
     <!--2.注册中心的地址-->
-    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <dubbo:registry address="zookeeper://172.16.167.20:2181"/>
     <!--3.扫描类（将什么包下的类作为服务提供类）-->
     <dubbo:annotation package="com.edu.service"/>
 
