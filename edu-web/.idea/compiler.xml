@@ -6,16 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="edu-service" />
-        <module name="edu-entity" />
-        <module name="edu-dao" />
+        <module name="edu-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="edu-dao" target="1.5" />
-      <module name="edu-entity" target="1.5" />
-      <module name="edu-parent" target="1.5" />
-      <module name="edu-service" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
