@@ -22,4 +22,14 @@ public class UserServiceImpl implements UserService {
     public User login(String phone, String password) {
         return userDao.login(phone,password);
     }
+
+    @Override
+    public Integer checkPhone(String phone) {
+        return userDao.checkPhone(phone);
+    }
+
+    @Override
+    public Integer register(String phone, String password, String nickname, String portrait) {
+        return userDao.register(phone,password,nickname,portrait);
+    }
 }

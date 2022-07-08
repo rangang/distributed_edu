@@ -25,8 +25,20 @@ public class TestUser {
     public void login() {
 
         User user = userDao.login("110", "123");
-        System.out.println("user = " + user);
+        System.out.println("用户登录：" + user);
 
+    }
+
+    @Test
+    public void checkPhone() {
+        Integer i = userDao.checkPhone("134");
+        System.out.println("检查手机号是否注册：" + i);
+    }
+
+    @Test
+    public void register() {
+        Integer i = userDao.register("134", "123", "134", "https://123.png");
+        System.out.println("用户注册：" + i);
     }
 
 }

@@ -23,5 +23,18 @@
         select * from user where phone = #{phone} and password = #{password}
     </select>
 
+    <!--  检查手机号是否注册过  -->
+    <select id="checkPhone" parameterType="java.lang.String" resultType="integer">
+        select count(*) from `user` where phone = #{phone}
+    </select>
+
+    <!--  用户注册  -->
+    <insert id="register">
+        insert  into `user`
+            (`name`,portrait,phone,password,create_time,update_time)
+        values
+        (#{nickname},#{portrait},#{phone},#{password},sysdate(),sysdate())
+    </insert>
+
 </mapper>
 
