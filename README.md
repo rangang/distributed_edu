@@ -16,3 +16,8 @@
 - 开发工具：后端->IDEA、数据库->Navicat Premium
 - 开发环境：JDK11、Maven 3.6.3、MySQL 5.7、Zookeeper 3.6.0、Dubbo 2.5.7、Redis 5.0.4
 
+## 项目说明
+
+### edu-parent 服务提供者
+
+### edu-web 服务消费者
