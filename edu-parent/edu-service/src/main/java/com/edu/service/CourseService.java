@@ -1,4 +1,4 @@
-package com.edu.mapper;
+package com.edu.service;
 
 import com.edu.entity.Course;
 
@@ -7,10 +7,10 @@ import java.util.List;
 /**
  * @BelongsProject: distributed_edu
  * @Author: RG
- * @CreateTime: 2022/7/11 3:02 下午
+ * @CreateTime: 2022/7/13 5:46 下午
  * @Description:
  */
-public interface CourseDao {
+public interface CourseService {
 
     /**
      * 查询全部课程信息

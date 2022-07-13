@@ -3,7 +3,7 @@
 <mapper namespace="com.edu.mapper.CourseDao">
 
     <resultMap type="com.edu.entity.Course" id="CourseMap">
-        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="id" column="c_id" jdbcType="INTEGER"/>
         <result property="courseName" column="course_name" jdbcType="VARCHAR"/>
         <result property="brief" column="brief" jdbcType="VARCHAR"/>
         <result property="price" column="price" jdbcType="VARCHAR"/>
@@ -17,12 +17,12 @@
         <result property="isNewDes" column="is_new_des" jdbcType="VARCHAR"/>
         <result property="lastOperatorId" column="last_operator_id" jdbcType="INTEGER"/>
         <result property="autoOnlineTime" column="auto_online_time" jdbcType="TIMESTAMP"/>
-        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
-        <result property="isDel" column="is_del" jdbcType="INTEGER"/>
+        <result property="createTime" column="c_create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="c_update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDel" column="c_is_del" jdbcType="INTEGER"/>
         <result property="totalDuration" column="total_duration" jdbcType="INTEGER"/>
         <result property="courseListImg" column="course_list_img" jdbcType="VARCHAR"/>
-        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="status" column="c_status" jdbcType="INTEGER"/>
         <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
         <result property="previewFirstField" column="preview_first_field" jdbcType="VARCHAR"/>
         <result property="previewSecondField" column="preview_second_field" jdbcType="VARCHAR"/>
@@ -30,26 +30,26 @@
 
         <!--    老师    -->
         <association property="teacher" javaType="com.edu.entity.Teacher">
-            <result property="id" column="id" jdbcType="INTEGER"/>
-            <result property="courseId" column="course_id" jdbcType="INTEGER"/>
+            <result property="id" column="t_id" jdbcType="INTEGER"/>
+            <result property="courseId" column="t_course_id" jdbcType="INTEGER"/>
             <result property="teacherName" column="teacher_name" jdbcType="VARCHAR"/>
             <result property="position" column="position" jdbcType="VARCHAR"/>
-            <result property="description" column="description" jdbcType="VARCHAR"/>
-            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
-            <result property="isDel" column="is_del" jdbcType="INTEGER"/>
+            <result property="description" column="t_description" jdbcType="VARCHAR"/>
+            <result property="createTime" column="t_create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="t_update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDel" column="t_is_del" jdbcType="INTEGER"/>
         </association>
         <!--    章节    -->
         <collection property="courseSections" ofType="com.edu.entity.CourseSection">
-            <result property="id" column="c_id" jdbcType="INTEGER"/>
-            <result property="courseId" column="course_id" jdbcType="INTEGER"/>
+            <result property="id" column="cs_id" jdbcType="INTEGER"/>
+            <result property="courseId" column="cs_course_id" jdbcType="INTEGER"/>
             <result property="sectionName" column="section_name" jdbcType="VARCHAR"/>
-            <result property="description" column="description" jdbcType="VARCHAR"/>
-            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="description" column="cs_description" jdbcType="VARCHAR"/>
+            <result property="createTime" column="cs_create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="cs_update_time" jdbcType="TIMESTAMP"/>
             <result property="isDe" column="is_de" jdbcType="INTEGER"/>
-            <result property="orderNum" column="order_num" jdbcType="INTEGER"/>
-            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="orderNum" column="cs_order_num" jdbcType="INTEGER"/>
+            <result property="status" column="cs_status" jdbcType="INTEGER"/>
 
             <!--N：小节-->
             <collection property="courseLessons" ofType="com.edu.entity.CourseLesson">
@@ -88,6 +88,19 @@
         </collection>
 
     </resultMap>
+
+    <select id="getAllCourse" resultMap="CourseMap">
+        select
+            c.id c_id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, c.create_time c_create_time, c.update_time c_update_time, c.is_del c_is_del, total_duration, course_list_img, c.status c_status, sort_num, preview_first_field, preview_second_field, sales,
+            t.id t_id, t.course_id t_course_id, teacher_name, position, t.description t_description, t.create_time t_create_time, t.update_time t_update_time, t.is_del t_is_del,
+            cs.id cs_id, cs.course_id cs_course_id, section_name, cs.description cs_description, cs.create_time cs_create_time, cs.update_time cs_update_time, is_de, cs.order_num cs_order_num, cs.status cs_status,
+            cl.id cl_id, cl.course_id cl_course_id, cl.section_id cl_section_id, theme, cl.duration cl_duration, is_free, cl.create_time cl_create_time, cl.update_time cl_update_time, cl.is_del cl_is_del, cl.order_num cl_order_num, cl.status cl_status
+        from course c,teacher t,course_section cs,course_lesson cl left join course_media cm
+                                                                             on (cm.lesson_id = cl.id)
+        where c.id = t.course_id
+          and c.id = cs.course_id
+          and cl.section_id = cs.id
+    </select>
 
 
 </mapper>
