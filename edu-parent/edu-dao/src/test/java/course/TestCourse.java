@@ -31,4 +31,20 @@ public class TestCourse {
 
     }
 
+    @Test
+    public void getCourseByUserId() {
+
+        List<Course> list = courseDao.getCourseByUserId("100030018");
+        System.out.println(list);
+
+    }
+
+    @Test
+    public void getCourseById() {
+
+        Course course = courseDao.getCourseById(7);
+        System.out.println(course);
+
+    }
+
 }
