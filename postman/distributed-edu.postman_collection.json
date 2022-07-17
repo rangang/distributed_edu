@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "612851ab-e0a6-416b-b2d2-3662d17e00ea",
+		"name": "distributed-edu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "用户登录",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/user/login?phone=166&password=123&nickname=166&portrait=http://123.png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "166"
+								},
+								{
+									"key": "password",
+									"value": "123"
+								},
+								{
+									"key": "nickname",
+									"value": "166"
+								},
+								{
+									"key": "portrait",
+									"value": "http://123.png"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "查询全部课程信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/course/getAllCourse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"course",
+								"getAllCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询已登录用户购买的全部课程信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/course/getCourseByUserId/100030018",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"course",
+								"getCourseByUserId",
+								"100030018"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询某门课程的详细信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/course/getCourseById/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"course",
+								"getCourseById",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "生成订单",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/order/saveOrder?orderNo=283db46e-6a4b-44ca-8e88-3160bce62b1c&userId=100030011&courseId=9&activityCourseId=0&sourceType=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"order",
+								"saveOrder"
+							],
+							"query": [
+								{
+									"key": "orderNo",
+									"value": "283db46e-6a4b-44ca-8e88-3160bce62b1c"
+								},
+								{
+									"key": "userId",
+									"value": "100030011"
+								},
+								{
+									"key": "courseId",
+									"value": "9"
+								},
+								{
+									"key": "activityCourseId",
+									"value": "0"
+								},
+								{
+									"key": "sourceType",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改订单状态",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/order/updateOrder/283db46e-6a4b-44ca-8e88-3160bce62b1b/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"order",
+								"updateOrder",
+								"283db46e-6a4b-44ca-8e88-3160bce62b1b",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除订单",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/order/deleteOrder/283db46e-6a4b-44ca-8e88-3160bce62b1c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"order",
+								"deleteOrder",
+								"283db46e-6a4b-44ca-8e88-3160bce62b1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询登录用户的全部订单",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/order/getOrderByUserId/100030011",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"order",
+								"getOrderByUserId",
+								"100030011"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "courseComment",
+			"item": [
+				{
+					"name": "保存留言",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/courseComment/saveCourseComment?courseId=7&userId=100030011&userName=往事&comment=牛",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"courseComment",
+								"saveCourseComment"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "7"
+								},
+								{
+									"key": "userId",
+									"value": "100030011"
+								},
+								{
+									"key": "userName",
+									"value": "往事"
+								},
+								{
+									"key": "comment",
+									"value": "牛"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "某个课程的全部留言（分页）",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "点赞",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/courseComment/saveFavorite/1/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"courseComment",
+								"saveFavorite",
+								"1",
+								"123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消赞",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/courseComment/cancelFavorite/1/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"courseComment",
+								"cancelFavorite",
+								"1",
+								"123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
