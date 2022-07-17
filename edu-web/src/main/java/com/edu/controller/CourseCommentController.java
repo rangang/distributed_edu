@@ -52,5 +52,16 @@ public class CourseCommentController {
 
     }
 
+    @RequestMapping("/saveFavorite/{commentId}/{userId}")
+    public Integer saveFavorite(@PathVariable("commentId") Integer commentId,@PathVariable("userId") Integer userId) {
+        Integer i = courseCommentService.saveFavorite(commentId, userId);
+        return i;
+    }
+
+    @RequestMapping("/cancelFavorite/{commentId}/{userId}")
+    public Integer cancelFavorite(@PathVariable("commentId") Integer commentId,@PathVariable("userId") Integer userId) {
+        Integer i = courseCommentService.cancelFavorite(commentId, userId);
+        return i;
+    }
 
 }

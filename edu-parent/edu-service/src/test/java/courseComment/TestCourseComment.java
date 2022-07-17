@@ -52,4 +52,16 @@ public class TestCourseComment {
         }
     }
 
+    @Test
+    public void saveFavorite() {
+        Integer i = courseCommentService.saveFavorite(1, 123);
+        System.out.println("点赞：" + i);
+    }
+
+    @Test
+    public void cancelFavorite() {
+        Integer i = courseCommentService.cancelFavorite(1, 123);
+        System.out.println("取消赞：" + i);
+    }
+
 }

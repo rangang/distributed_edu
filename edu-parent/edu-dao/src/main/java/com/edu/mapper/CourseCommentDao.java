@@ -37,4 +37,29 @@ public interface CourseCommentDao {
      */
     Integer existsFavorite(@Param("commentId") Integer commentId,@Param("userId") Integer userId);
 
+    /**
+     * 保存点赞信息
+     * @param commentId 留言编号
+     * @param userId    用户编号
+     * @return
+     */
+    Integer saveCommentFavorite(@Param("commentId") Integer commentId,@Param("userId") Integer userId);
+
+    /**
+     * 更新点赞信息的状态（将is_del=0，表示已赞）
+     * @param status    状态，0：已赞，1：取消赞
+     * @param commentId 留言编号
+     * @param userId    用户编号
+     * @return
+     */
+    Integer updateFavoriteStatus(@Param("status") Integer status,@Param("commentId") Integer commentId,@Param("userId") Integer userId);
+
+    /**
+     * 更新点赞的数量
+     * @param x +1的话，赞的数量增加，-1的话，赞的数量减少
+     * @param commentId 某条留言的编号
+     * @return
+     */
+    Integer updateLikeCount(@Param("x") Integer x, @Param("commentId") Integer commentId);
+
 }

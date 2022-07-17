@@ -54,7 +54,30 @@ public class TestCourseComment {
         }
     }
 
+    @Test
+    public void existsFavorite() {
 
+        Integer count = courseCommentDao.existsFavorite(1, 123);
+        System.out.println("是否点赞：" + count);
 
+    }
+
+    @Test
+    public void saveCommentFavorite() {
+        Integer i = courseCommentDao.saveCommentFavorite(2, 123);
+        System.out.println("保存点赞：" + i);
+    }
+
+    @Test
+    public void updateFavoriteStatus() {
+        Integer i = courseCommentDao.updateFavoriteStatus(1, 2, 123);
+        System.out.println("更新点赞状态：" + i);
+    }
+
+    @Test
+    public void updateLikeCount() {
+        Integer i = courseCommentDao.updateLikeCount(1, 18);
+        System.out.println("更新点赞数量：" + i);
+    }
 
 }

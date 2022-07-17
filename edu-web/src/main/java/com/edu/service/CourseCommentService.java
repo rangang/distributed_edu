@@ -28,4 +28,20 @@ public interface CourseCommentService {
      */
     List<CourseComment> getCourseCommentByCourseId(Integer courseId, Integer offset, Integer pageSize);
 
+    /**
+     * 点赞
+     * @param commentId 留言编号
+     * @param userId    用户编号
+     * @return
+     */
+    Integer saveFavorite(Integer commentId,Integer userId);
+
+    /**
+     * 取消赞
+     * @param commentId 留言编号
+     * @param userId    用户编号
+     * @return
+     */
+    Integer cancelFavorite(Integer commentId,Integer userId);
+
 }

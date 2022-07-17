@@ -45,9 +45,25 @@
             limit #{offset}, #{pageSize}
     </select>
 
+    <!--查看某个用户的某条留言是否点过赞-->
     <select id="existsFavorite" resultType="integer">
         select count(*) from course_comment_favorite_record where comment_id = #{commentId} and user_id = #{userId}
     </select>
+
+    <!--没有点过赞，保存点赞信息-->
+    <insert id="saveCommentFavorite">
+        insert  into `course_comment_favorite_record`(user_id,`comment_id`,`is_del`,`create_time`,`update_time`) values
+            (#{userId},#{commentId},0,sysdate(),sysdate())
+    </insert>
+
+    <!--修改点赞的状态，0表示点赞,1表示取消赞-->
+    <update id="updateFavoriteStatus">
+        update course_comment_favorite_record set is_del = #{status} where  comment_id = #{commentId} and user_id = #{userId}
+    </update>
+
+    <update id="updateLikeCount">
+        update course_comment set like_count = like_count + #{x} where id = #{commentId}
+    </update>
 
 </mapper>
 
