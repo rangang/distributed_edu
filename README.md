@@ -19,5 +19,11 @@
 ## 项目说明
 
 ### edu-parent 服务提供者
+![image](https://user-images.githubusercontent.com/16054555/179386491-fa012d24-6adf-43f8-ad8a-65d5a5ff30a8.png)
+
 
 ### edu-web 服务消费者
+![image](https://user-images.githubusercontent.com/16054555/179386499-2d968aec-7693-432a-9e34-1b6d4f1340ce.png)
+
+### 接口
+![image](https://user-images.githubusercontent.com/16054555/179386529-e4cb5776-374a-41d3-937a-b3937fdb2fd1.png)
